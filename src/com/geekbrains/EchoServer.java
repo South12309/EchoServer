@@ -3,7 +3,7 @@ package com.geekbrains;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-public class EchoServer extends Echo{
+public class EchoServer extends SocketService {
     private final int SERVER_PORT = 8189;
 
     public static void main(String[] args) {

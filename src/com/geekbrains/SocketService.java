@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
-public abstract class Echo {
+public abstract class SocketService {
     private DataInputStream in;
     private DataOutputStream out;
     private Socket socket;

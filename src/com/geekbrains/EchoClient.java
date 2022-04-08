@@ -3,7 +3,7 @@ package com.geekbrains;
 import java.io.IOException;
 import java.net.Socket;
 
-public class EchoClient extends Echo {
+public class EchoClient extends SocketService {
     private final String SERVER_ADDRESS = "localhost";
     private final int SERVER_PORT = 8189;
 
