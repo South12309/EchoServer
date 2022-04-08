@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class EchoClient extends Echo {
+    private final String SERVER_ADDRESS = "localhost";
+    private final int SERVER_PORT = 8189;
+
     public static void main(String[] args) {
         EchoClient client = new EchoClient();
         client.start();
@@ -12,9 +15,10 @@ public class EchoClient extends Echo {
     @Override
     protected void openConnect() {
 
-        try (Socket socket = new Socket("localhost", 8189)) {
+        try {
+            setSocket(new Socket(SERVER_ADDRESS, SERVER_PORT));
             System.out.println("Подключено к серверу");
-            makeStream(socket);
+
 
         } catch (IOException e) {
             e.printStackTrace();
