@@ -1,21 +1,24 @@
 package com.geekbrains;
 
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
 
-public class EchoServer {
+public class EchoServer extends SocketService {
+    private final int SERVER_PORT = 8189;
 
-    public void openConnect() {
-        Socket socket;
+    public static void main(String[] args) {
+        EchoServer server = new EchoServer();
+        server.start();
+    }
+    @Override
+    protected void openConnect() {
 
-        try (ServerSocket serverSocket = new ServerSocket(8189)) {
+        try (ServerSocket serverSocket = new ServerSocket(SERVER_PORT)) {
             System.out.println("Сервер запущен. Ожидание подключения....");
-            socket = serverSocket.accept();
+            setSocket(serverSocket.accept());
             System.out.println("Клиент подключился");
-            DataInputStream in = new DataInputStream(socket.getInputStream());
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
